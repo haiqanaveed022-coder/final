@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Global Times - Latest News</title>
+        <link rel="icon" type="image/png" href="gt.jpg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url(j.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+        header {
+            background: #0d1b2a;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+        
+
+        .news-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-content h2 {
+            margin-top: 0;
+        }
+
+        .news-content a {
+            text-decoration: none;
+            color: #0077ff;
+            font-weight: bold;
+        }
+
+        /* POPUP */
+        .popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            width: 280px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(300px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .popup button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #0077ff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* NAVBAR */
+        .navbar {
+            background: #14213d;
+            
+            padding: 0 40px;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+
+        .navbar li {
+            margin-right: 30px;
+        }
+
+
+        .navbar a {
+            display: block;
+            padding: 15px 0;
+            color: white;
+            text-decoration:none;
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        /* Hover effect */    
+        .navbar a:hover {
+            color: #00b4ff;
+        }
+
+ 
+        /* Active underline effect */
+        .navbar a.active::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #00b4ff;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <link rel="icon" type="image/png" href="gt.jpg">
+    <h1>Global Times</h1>
+    <nav class="navbar">
+    <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="africa.html">World</a></li>
+        <li><a href="cricket.html">Sports</a></li>
+        <li><a href="palestine.html">Politics</a></li>
+    </ul>
+</nav>
+
+</header>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+    <strong>Breaking Updates Available</strong>
+    <p>Click below to continue reading.</p>
+    <button onclick="closePopup()">Continue</button>
+</div>
+
+
+<div class="news-container">
+
+    <div class="news-card">
+        <img src="cri.webp">
+        <div class="news-content">
+            <h2>Afghanistan vs South Africa</h2>
+            <p>Thrilling cricket match keeps fans on edge.</p>
+            <a href="cricket.html">Read Full Article →</a>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <img src="t.jpg">
+        <div class="news-content">
+            <h2>Bangladesh New Prime Minister</h2>
+            <p>What do we know about Bangladesh's next prime minister?</p>
+            <a href="bang.html">Read Full Article →</a>
+        </div>
+    </div>    
+    <div class="news-card">
+        <img src="p.jpg">
+        <div class="news-content">
+            <h2>Palestine Situation Update</h2>
+            <p>Ongoing tensions continue to affect the region.</p>
+            <a href="palestine.html">Read Full Article →</a>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <img src="k.webp">
+        <div class="news-content">
+            <h2>Gul Plaza Fire Incident</h2>
+            <p>Major fire breaks out in commercial building, emergency response underway.</p>
+            <a href="gulplaza.html">Read Full Article →</a>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <img src="l.avif">
+        <div class="news-content">
+            <h2>Africa Slowly Splitting Apart</h2>
+            <p>Geologists observe tectonic movement forming a new ocean over millions of years.</p>
+            <a href="africa.html">Read Full Article →</a>
+        </div>
+    </div>    
+
+</div>
+
+<script>
+    window.onload = function() {
+        if(Math.random() > 0.5){
+            document.getElementById("popup").style.display = "block";
+        }
+    }
+
+    function closePopup(){
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
